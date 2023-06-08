@@ -11,6 +11,7 @@ class SmartHomeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: HomePage());
+      }
+    }
