@@ -1,16 +1,43 @@
 import 'package:flutter/material.dart';
-import 'apresentacao/telas/home_page.dart';
+import 'theme/theme.dart';
+import 'views/pages/about_page.dart';
+import 'views/pages/home.dart';
+import 'views/pages/profile_page.dart';
+import 'views/pages/splash_page.dart';
+
 
 void main() {
-  runApp(const SmartHomeApp());
+  runApp(const MyApp());
 }
 
-class SmartHomeApp extends StatelessWidget {
-  const SmartHomeApp({super.key});
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final bool _changeTheme = false;
+
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
+
+    return MaterialApp(
+      title: 'Smart home',
+      // home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/home': (context) => MyHomePage(
+          darkMode: _changeTheme,
+        ),
+        '/profile': (context) => const Profile(),
+        '/about': (context) => AboutUs(),
+        '/': (context) => const LoadingPage()
+      },
+      theme: _changeTheme ? CustomTheme.darkTheme : CustomTheme.lightTheme,
+    );
   }
 }
