@@ -5,14 +5,14 @@ The project was completed as part of a university course and aims to control two
 This document will guide you through setting up the project, running it on both Android and iOS, and understanding its key features.
 
 ## Table of Contents
-- [Project Overview](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#project-overview)
-- [Features](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#Features)
-- [Dependencies](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#dependencies)
-- [Getting Started](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#getting-started)
-  - [Prerequisites](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#prerequisites)
-  - [Installation](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#installation)
-- [Usage](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#usage)
-- [Contributing](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/README.md#contributing)
+- [Project Overview](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#project-overview)
+- [Features](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#features)
+- [Dependencies](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#dependencies)
+- [Getting Started](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#getting-started)
+  - [Prerequisites](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#prerequisites)
+  - [Installation](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#installation)
+- [Usage](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#usage)
+- [Contributing](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#contributing)
 
 
 ## Project Overview
