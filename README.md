@@ -4,6 +4,8 @@ This README provides an overview of the Smart Home project, a mobile application
 The project was completed as part of a university course and aims to control two lamps by connecting to an ESP32 device. 
 This document will guide you through setting up the project, running it on both Android and iOS, and understanding its key features.
 
+![First Version](assets/readme/version_1.png)
+
 ## Table of Contents
 - [Project Overview](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#project-overview)
 - [Features](https://github.com/CamilaFernandesdev/smart_home_projeto_integrador/blob/main/README.md#features)
