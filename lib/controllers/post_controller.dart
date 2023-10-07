@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../models/post_model.dart';
@@ -18,9 +19,9 @@ class PostController {
       //Uri.https('example.com', 'whatsit/create'),
       var decodedResponse = jsonDecode(response.body);
       String statusRele = decodedResponse.map((e) => Post.fromJson(e));
-      print(statusRele);
+      log(statusRele);
 
-      print(decodedResponse);
+      log(decodedResponse);
     } finally {
       client.close();
     }

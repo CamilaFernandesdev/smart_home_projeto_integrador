@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+import '../../shared/theme.dart';
 
 Color yellow = CustomTheme.yellow;
 
@@ -20,23 +20,20 @@ class LogoSmartApp extends StatelessWidget {
             color: yellow,
             shadows: [
               BoxShadow(
-                color: yellow,
-                blurRadius: sizeLogo / 10,
-                blurStyle: BlurStyle.solid
-              )
+                  color: yellow,
+                  blurRadius: sizeLogo / 10,
+                  blurStyle: BlurStyle.solid)
             ],
           ),
-          Icon(
-            Icons.lightbulb_rounded,
-            size: sizeLogo * 0.6,
-            color: yellow,
-            shadows: [
-              BoxShadow(
-                color: yellow,
-                blurRadius: sizeLogo / 10,
-                blurStyle: BlurStyle.solid
-              )]
-          )
+          Icon(Icons.lightbulb_rounded,
+              size: sizeLogo * 0.6,
+              color: yellow,
+              shadows: [
+                BoxShadow(
+                    color: yellow,
+                    blurRadius: sizeLogo / 10,
+                    blurStyle: BlurStyle.solid)
+              ])
         ],
       ),
     );

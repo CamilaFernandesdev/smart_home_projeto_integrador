@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+import '../../shared/theme.dart';
 
 class SmartDeviceBox extends StatelessWidget {
   final String smartDeviceName;
@@ -29,8 +29,7 @@ class SmartDeviceBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Icon(Icons.lightbulb_rounded,
-                  color: customTheme.changeColorPowerSwitch(powerOn),
-                  size: 50),
+                  color: customTheme.changeColorPowerSwitch(powerOn), size: 50),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -40,16 +39,14 @@ class SmartDeviceBox extends StatelessWidget {
                     Text(
                       smartDeviceName,
                       style: TextStyle(
-                          color: 
-                            customTheme.changeColorPowerSwitch(powerOn),
+                          color: customTheme.changeColorPowerSwitch(powerOn),
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
                     Text(
                       smartDevicedescription,
                       style: TextStyle(
-                        color:
-                            customTheme.changeColorPowerSwitch(powerOn),
+                        color: customTheme.changeColorPowerSwitch(powerOn),
                       ),
                     ),
                   ],

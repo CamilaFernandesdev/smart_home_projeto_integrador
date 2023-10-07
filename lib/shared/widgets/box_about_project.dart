@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/theme.dart';
+import '../../shared/theme.dart';
 
 class BoxProjetoIntegrador extends StatelessWidget {
   const BoxProjetoIntegrador({super.key});
@@ -11,9 +11,9 @@ class BoxProjetoIntegrador extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: CustomTheme.yellow,
-          minimumSize: Size(230, 55),
+          minimumSize: const Size(230, 55),
         ),
-        child: Text(
+        child: const Text(
           'Projeto Integrador',
           style: TextStyle(
             fontWeight: FontWeight.bold,

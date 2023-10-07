@@ -1,21 +1,19 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 
-
-import '../../theme/theme.dart';
-import '../../widgets/box_about_project.dart';
-import '../../widgets/box_devices.dart';
-import '../../widgets/logo.dart';
-import '../../widgets/menu_navigator.dart';
+import '../../controllers/smart_device_controller.dart';
+import '../../shared/theme.dart';
+import '../../shared/widgets/box_devices.dart';
+import '../components/drawer.dart';
 
 const List smartDevice = [
   ['Lâmpada', 'Aparelho inteligente', false],
-  ['Lâmpada', 'Aparelho inteligente', false]
+  ['Lâmpada', 'Aparelho inteligente', true]
 ];
 
-CustomTheme _customTheme = CustomTheme();
+const bool teste = false;
 
- //ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   late bool darkMode = false;
 
@@ -29,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+  final smartDevices = SmartDeviceController().getSmartDevices();
 
   void powerSwitchChanged(bool value, int index) {
     setState(() {
@@ -39,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const int sizeContainer = 115;
+
     // final _themeMode = MediaQuery.of(context).platformBrightness == B
     return Scaffold(
       appBar: AppBar(
@@ -49,69 +49,103 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               setState(() {
                 widget.darkMode = !widget.darkMode;
-               widget.darkMode ? CustomTheme.darkTheme : CustomTheme.lightTheme;
+                widget.darkMode
+                    ? CustomTheme.darkTheme
+                    : CustomTheme.lightTheme;
               });
             },
             icon: Icon(widget.darkMode ? Icons.nightlight : Icons.wb_sunny),
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: const [
-            DrawerHeader(child: LogoSmartApp(sizeLogo: 75)),
-            MenuNavigator(
-              menuName: 'Home',
-              iconMenu: Icon(Icons.broadcast_on_personal),
-              indicatorPage: '/',
-            ),
-            MenuNavigator(
-              menuName: 'Profile',
-              iconMenu: Icon(Icons.account_circle_rounded),
-              indicatorPage: '/profile',
-            ),
-            MenuNavigator(
-              menuName: 'About',
-              iconMenu: Icon(Icons.book),
-              indicatorPage: '/about',
-            ),
-            MenuNavigator(
-              menuName: 'Loading Teste',
-              iconMenu: Icon(CupertinoIcons.f_cursive),
-              indicatorPage: '/splash',
-            ),
-          ],
-        ),
-      ),
-      body: CustomScrollView(slivers: [
-        _customTheme.sliverAppBarProjetoIntegrador(
-            context: context, title: const BoxProjetoIntegrador()),
-        const SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Center(
-              child: Text(
-                'Dispositivos conectados',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      drawer: buildMenuDrawer(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'Dispositivos conectados',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: GridView.builder(
+              padding: EdgeInsets.all(20),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // You can adjust the number of columns
               ),
+              itemCount: smartDevices.length,
+              itemBuilder: (context, index) {
+                final smartDevice = smartDevices[index];
+                return Card(
+                  child: ListTile(
+                    title: Text(smartDevice.name),
+                    subtitle: Text(smartDevice.type),
+                    trailing:
+                        smartDevice.hasOptions ? Icon(Icons.settings) : null,
+                    // Add more UI elements or logic based on the smart device properties
+                  ),
+                );
+              },
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-            child: SmartDeviceBox(
-          smartDeviceName: smartDevice[0][0],
-          smartDevicedescription: smartDevice[0][1],
-          powerOn: smartDevice[0][2],
-          onChanged: (value) => powerSwitchChanged(value, 0),
-        )),
-        SliverToBoxAdapter(
-            child: SmartDeviceBox(
-          smartDeviceName: smartDevice[1][0],
-          smartDevicedescription: smartDevice[1][1],
-          powerOn: smartDevice[1][2],
-          onChanged: (value) => powerSwitchChanged(value, 1),
-        ))
-      ]),
+        ],
+      ),
+      // body: CustomScrollView(slivers: [
+      //   // SliverAppBar(
+      //   //   title: const Text('Título da AppBar'),
+      //   //   centerTitle: true,
+      //   //   shadowColor: Colors.grey[900],
+      //   //   expandedHeight: sizeContainer - 10,
+      //   //   floating: true,
+      //   //   forceElevated: true,
+      //   //   automaticallyImplyLeading: false,
+      //   // Remova o atributo 'child' daqui
+      //   // ),
+      //   const SliverToBoxAdapter(
+      //     child: Padding(
+      //       padding: EdgeInsets.all(12.0),
+      //       child: Center(
+      //         child: Text(
+      //           'Dispositivos conectados',
+      //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      //   SliverToBoxAdapter(
+      //     child: SmartDeviceBox(
+      //       smartDeviceName: smartDevice[0][0],
+      //       smartDevicedescription: smartDevice[0][1],
+      //       powerOn: smartDevice[0][2],
+      //       onChanged: (value) => powerSwitchChanged(value, 0),
+      //     ),
+      //   ),
+      //   SliverToBoxAdapter(
+      //     child: SmartDeviceBox(
+      //       smartDeviceName: smartDevice[1][0],
+      //       smartDevicedescription: smartDevice[1][1],
+      //       powerOn: smartDevice[1][2],
+      //       onChanged: (value) => powerSwitchChanged(value, 1),
+      //     ),
+      //   ),
+      // SliverToBoxAdapter(
+      //     child: teste
+      //         ? ListView.builder(
+      //             itemCount: smartDevices.length,
+      //             itemBuilder: (context, index) {
+      //               final smartDevice = smartDevices[index];
+      //               return ListTile(
+      //                 title: Text(smartDevice.name),
+      //                 subtitle: Text(smartDevice.type),
+      //                 trailing: smartDevice.hasOptions
+      //                     ? Icon(Icons.settings)
+      //                     : null,
+      //                 // Add more UI elements or logic based on the smart device properties
+      //               );
+      //             })
+      //         : Container(color: Colors.green))
     );
   }
 }

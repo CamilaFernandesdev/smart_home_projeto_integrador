@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+import '../../shared/theme.dart';
 
 class StudentBox extends StatelessWidget {
   final String studentName;
   final String studentCourse;
-  final String imageStudentPath;
 
   const StudentBox({
     super.key,
     required this.studentName,
     required this.studentCourse,
-    required this.imageStudentPath,
   });
 
   @override
@@ -47,7 +45,7 @@ class StudentBox extends StatelessWidget {
                   Text(
                     studentCourse,
                     style: TextStyle(
-                        fontSize: 15, color: CustomTheme.turnOffColorContainer),
+                        fontSize: 11, color: CustomTheme.turnOffColorContainer),
                   )
                 ],
               )

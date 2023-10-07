@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'theme/theme.dart';
+import '../../shared/theme.dart';
 import 'views/pages/about_page.dart';
 import 'views/pages/home.dart';
 import 'views/pages/profile_page.dart';
 import 'views/pages/splash_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -21,20 +19,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final bool _changeTheme = false;
 
-
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Smart home',
       // home: const MyHomePage(),
       debugShowCheckedModeBanner: false,
       routes: {
         '/home': (context) => MyHomePage(
-          darkMode: _changeTheme,
-        ),
+              darkMode: _changeTheme,
+            ),
         '/profile': (context) => const Profile(),
-        '/about': (context) => AboutUs(),
+        '/about': (context) => const AboutUs(),
         '/': (context) => const LoadingPage()
       },
       theme: _changeTheme ? CustomTheme.darkTheme : CustomTheme.lightTheme,

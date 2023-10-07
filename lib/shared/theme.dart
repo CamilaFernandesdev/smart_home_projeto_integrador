@@ -18,7 +18,6 @@ class CustomTheme {
   static Color turnOnColorContainer = Colors.amber.shade800;
   static Color darkGrey = Colors.grey.shade900;
 
-
   static ThemeData testTheme = ThemeData(
     useMaterial3: false,
     primaryColor: darkBlue,
@@ -80,11 +79,11 @@ class CustomTheme {
     iconTheme: IconThemeData(color: lightGrey),
     primaryIconTheme: IconThemeData(color: lightGrey),
     appBarTheme: AppBarTheme(
-        color: darkBlue,
-        elevation: 0,
-        centerTitle: true,
-        foregroundColor: lightGrey,
-        ),
+      color: darkBlue,
+      elevation: 0,
+      centerTitle: true,
+      foregroundColor: lightGrey,
+    ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: darkBlue,
       scrimColor: darkBlueTransparent,
@@ -170,9 +169,7 @@ class CustomTheme {
   //   );
 
   SliverAppBar sliverAppBarProjetoIntegrador(
-      {double sizeContainer = 105,
-      dynamic context,
-      required Widget title}) {
+      {double sizeContainer = 105, dynamic context, required Widget title}) {
     return SliverAppBar(
       title: title,
       centerTitle: true,
@@ -182,22 +179,21 @@ class CustomTheme {
       forceElevated: true,
       automaticallyImplyLeading: false,
     );
-    }
-
-    BoxDecoration decorationBoxPrincipalAboutUs(dynamic context) {
-      return const BoxDecoration(
-        color: darkBlue,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(18),
-            topRight: Radius.circular(18),
-          ));
-    }
   }
 
+  BoxDecoration decorationBoxPrincipalAboutUs(dynamic context) {
+    return const BoxDecoration(
+        color: darkBlue,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(18),
+          topRight: Radius.circular(18),
+        ));
+  }
+}
 
 class CustomDetailsTheme extends ThemeExtension<CustomDetailsTheme> {
   final Color? colorTheme;
-    final Color? colorTheme2;
+  final Color? colorTheme2;
 
   final BoxDecoration? decorationAboutUs;
 
@@ -210,11 +206,11 @@ class CustomDetailsTheme extends ThemeExtension<CustomDetailsTheme> {
   @override
   CustomDetailsTheme copyWith({Color? colorTheme}) {
     return CustomDetailsTheme(
-      colorTheme: colorTheme ?? this.colorTheme,
-      colorTheme2: colorTheme2 ?? this.colorTheme2,
+      colorTheme: colorTheme ?? colorTheme,
+      colorTheme2: colorTheme2 ?? colorTheme2,
       // colorTheme: colorTheme ?? this.colorTheme,
 
-      decorationAboutUs: decorationAboutUs ?? this.decorationAboutUs,
+      decorationAboutUs: decorationAboutUs ?? decorationAboutUs,
     );
   }
 

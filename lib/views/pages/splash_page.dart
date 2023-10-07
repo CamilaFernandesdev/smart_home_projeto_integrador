@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-import '../../theme/theme.dart';
-
+import '../../shared/theme.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
@@ -22,7 +21,6 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
-
     // void startTimer() {
     //   Timer.periodic(const Duration(milliseconds: 50), (timer) {
     //     setState(() {
@@ -64,14 +62,17 @@ class _LoadingPageState extends State<LoadingPage> {
             circularStrokeCap: CircularStrokeCap.round,
             center: Icon(
               Icons.lightbulb_rounded,
-              color: animationComplete ? CustomTheme.yellow : CustomTheme.turnOffColorContainer,
+              color: animationComplete
+                  ? CustomTheme.yellow
+                  : CustomTheme.turnOffColorContainer,
               size: 105,
               shadows: [
                 BoxShadow(
-                  color: animationComplete ? CustomTheme.yellow : Colors.transparent,
-                  blurRadius: 20,
-                  blurStyle: BlurStyle.solid
-                )
+                    color: animationComplete
+                        ? CustomTheme.yellow
+                        : Colors.transparent,
+                    blurRadius: 20,
+                    blurStyle: BlurStyle.solid)
               ],
             ),
             onAnimationEnd: () {

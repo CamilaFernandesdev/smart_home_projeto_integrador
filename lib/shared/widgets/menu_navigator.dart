@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import '../theme/theme.dart';
+import '../../shared/theme.dart';
 
 class MenuNavigator extends StatelessWidget {
   final String menuName;
   final Icon iconMenu;
   final String indicatorPage;
 
-
-  const MenuNavigator({
-    super.key,
-    required this.menuName,
-    required this.indicatorPage,
-    required this.iconMenu
-  });
+  const MenuNavigator(
+      {super.key,
+      required this.menuName,
+      required this.indicatorPage,
+      required this.iconMenu});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class MenuNavigator extends StatelessWidget {
         ),
         onTap: () {
           Navigator.of(context).pushNamed(indicatorPage);
-          
+
           // Navigator.pop(context);
         });
   }
